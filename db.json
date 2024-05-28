@@ -1,0 +1,348 @@
+{
+  "saleOrders": [
+    {
+      "id": "f245",
+      "invoice_no": "INV346",
+      "customer_id": "3736473",
+      "invoice_date": "2024-05-27T11:15:48.322Z",
+      "paid": false,
+      "items": [
+        {
+          "sku_id": "43334",
+          "price": "12489",
+          "quantity": "34"
+        }
+      ]
+    },
+    {
+      "id": "5abe",
+      "invoice_no": "INV367",
+      "customer_id": "343434",
+      "invoice_date": "2024-05-29",
+      "paid": false,
+      "items": [
+        {
+          "sku_id": "91",
+          "price": 200,
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "id": "36f4",
+      "invoice_no": "INV456",
+      "customer_id": "6389393",
+      "invoice_date": "2024-05-25",
+      "paid": false,
+      "items": [
+        {
+          "sku_id": "961",
+          "price": 120,
+          "quantity": 120
+        }
+      ]
+    },
+    {
+      "id": "9033",
+      "invoice_no": "INV8383",
+      "customer_id": "389373",
+      "invoice_date": "2024-05-24",
+      "paid": true,
+      "items": [
+        {
+          "sku_id": "901",
+          "price": 45,
+          "quantity": 12
+        }
+      ]
+    },
+    {
+      "id": "d365",
+      "invoice_no": "INV37373",
+      "customer_id": "EWEQEQEE",
+      "invoice_date": "2024-06-02",
+      "paid": true,
+      "items": [
+        {
+          "sku_id": "981",
+          "price": 120,
+          "quantity": 420
+        }
+      ]
+    },
+    {
+      "id": "b2da",
+      "invoice_no": "INV786",
+      "customer_id": "4323535",
+      "invoice_date": "2024-06-02",
+      "paid": false,
+      "items": [
+        {
+          "sku_id": "961",
+          "price": 344,
+          "quantity": 21
+        }
+      ]
+    },
+    {
+      "id": "c017",
+      "invoice_no": "INV37363",
+      "customer_id": "EWEQEQEE",
+      "invoice_date": "2024-06-02",
+      "paid": true,
+      "items": [
+        {
+          "sku_id": "981",
+          "price": 120,
+          "quantity": 420
+        }
+      ]
+    },
+    {
+      "id": "e0be",
+      "invoice_no": "INV786",
+      "customer_id": "4323535",
+      "invoice_date": "2024-06-02",
+      "paid": true,
+      "items": [
+        {
+          "sku_id": "961",
+          "price": 344,
+          "quantity": 21
+        }
+      ]
+    },
+    {
+      "id": "f3c6",
+      "invoice_no": "INV456562",
+      "customer_id": "343434",
+      "invoice_date": "2024-05-24",
+      "paid": true,
+      "items": [
+        {
+          "sku_id": "961",
+          "price": 52,
+          "quantity": 10
+        }
+      ]
+    }
+  ],
+  "product": {
+    "Earphones": {
+      "id": 701,
+      "display_id": 55,
+      "owner": 6001,
+      "name": "Earphones",
+      "category": "Electronics",
+      "characteristics": "High-Quality Sound and Noise-Cancellation",
+      "features": "Wireless, Noise-Cancelling, and Comfortable Fit",
+      "brand": "Top Audio Brands",
+      "sku": [
+        {
+          "id": 901,
+          "selling_price": 249,
+          "max_retail_price": 299,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 200,
+          "product": 701,
+          "name": "Apple AirPods Pro"
+        },
+        {
+          "id": 902,
+          "selling_price": 279,
+          "max_retail_price": 329,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 150,
+          "product": 701,
+          "name": "Sony WF-1000XM4"
+        },
+        {
+          "id": 903,
+          "selling_price": 279,
+          "max_retail_price": 329,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 120,
+          "product": 701,
+          "name": "Bose QuietComfort Earbuds"
+        },
+        {
+          "id": 904,
+          "selling_price": 179,
+          "max_retail_price": 199,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 130,
+          "product": 701,
+          "name": "Jabra Elite 75t"
+        }
+      ],
+      "updated_on": "2024-05-24T12:46:41.995873Z",
+      "adding_date": "2024-05-24T12:46:41.995828Z"
+    },
+    "Phones": {
+      "id": 601,
+      "display_id": 45,
+      "owner": 5001,
+      "name": "Phones",
+      "category": "Electronics",
+      "characteristics": "High-End Smartphones with Advanced Features",
+      "features": "Latest models from top brands",
+      "brand": "Smart Devices",
+      "sku": [
+        {
+          "id": 801,
+          "selling_price": 999,
+          "max_retail_price": 1099,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 150,
+          "product": 601,
+          "name": "iPhone 13"
+        },
+        {
+          "id": 802,
+          "selling_price": 799,
+          "max_retail_price": 899,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 200,
+          "product": 601,
+          "name": "Samsung Galaxy S21"
+        },
+        {
+          "id": 803,
+          "selling_price": 699,
+          "max_retail_price": 799,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 120,
+          "product": 601,
+          "name": "Google Pixel 6"
+        },
+        {
+          "id": 804,
+          "selling_price": 729,
+          "max_retail_price": 829,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 130,
+          "product": 601,
+          "name": "OnePlus 9"
+        }
+      ],
+      "updated_on": "2024-05-24T12:46:41.995873Z",
+      "adding_date": "2024-05-24T12:46:41.995828Z"
+    },
+    "Laptops": {
+      "id": 501,
+      "display_id": 35,
+      "owner": 4001,
+      "name": "Laptops",
+      "category": "Electronics",
+      "characteristics": "High-Performance and Reliable Laptops",
+      "features": "Various specifications and brands",
+      "brand": "Tech Giants",
+      "sku": [
+        {
+          "id": 701,
+          "selling_price": 2000,
+          "max_retail_price": 2200,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 50,
+          "product": 501,
+          "name": "MacBook Pro"
+        },
+        {
+          "id": 702,
+          "selling_price": 1500,
+          "max_retail_price": 1700,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 40,
+          "product": 501,
+          "name": "Dell XPS 13"
+        },
+        {
+          "id": 703,
+          "selling_price": 1600,
+          "max_retail_price": 1800,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 30,
+          "product": 501,
+          "name": "HP Spectre x360"
+        },
+        {
+          "id": 704,
+          "selling_price": 1800,
+          "max_retail_price": 2000,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 20,
+          "product": 501,
+          "name": "Lenovo ThinkPad X1"
+        }
+      ],
+      "updated_on": "2024-05-24T12:46:41.995873Z",
+      "adding_date": "2024-05-24T12:46:41.995828Z"
+    },
+    "Clothes": {
+      "id": 401,
+      "display_id": 25,
+      "owner": 3001,
+      "name": "Clothes",
+      "category": "Apparel",
+      "characteristics": "Fashionable and Comfortable Clothing",
+      "features": "Variety of styles and sizes",
+      "brand": "Stylish Wear",
+      "sku": [
+        {
+          "id": 601,
+          "selling_price": 25,
+          "max_retail_price": 30,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 200,
+          "product": 401,
+          "name": "T-Shirt"
+        },
+        {
+          "id": 602,
+          "selling_price": 50,
+          "max_retail_price": 60,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 150,
+          "product": 401,
+          "name": "Jeans"
+        },
+        {
+          "id": 603,
+          "selling_price": 80,
+          "max_retail_price": 90,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 100,
+          "product": 401,
+          "name": "Jacket"
+        },
+        {
+          "id": 604,
+          "selling_price": 70,
+          "max_retail_price": 85,
+          "amount": 1,
+          "unit": "piece",
+          "quantity_in_inventory": 120,
+          "product": 401,
+          "name": "Dress"
+        }
+      ],
+      "updated_on": "2024-05-24T12:46:41.995873Z",
+      "adding_date": "2024-05-24T12:46:41.995828Z"
+    }
+  }
+}
