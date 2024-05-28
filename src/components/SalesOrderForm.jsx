@@ -10,12 +10,16 @@ import {
   Switch,
   FormControl,
   FormLabel,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import Select from "react-select";
+import { useProducts } from "../hooks/useSaleOrders";
 
-const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
+const SaleOrderForm = ({ onSubmit }) => {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [skuData, setSkuData] = useState({});
+  const [selectedSKUs, setSelectedSKUs] = useState([]);
   const [formData, setFormData] = useState({
     invoice_no: "",
     customer_id: "",
@@ -23,17 +27,32 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
     paid: false,
   });
 
+  const { data: productData, isLoading, isError, error } = useProducts();
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return (
+
+      <Alert status="error">
+        <AlertIcon />
+        {error.message}
+      </Alert>
+    );
+  }
+
   const handleProductChange = (selectedOptions) => {
     const selected = selectedOptions.map((option) => option.value);
     setSelectedProducts(selected);
 
-    // Extract SKUs for selected products
     let skus = {};
     selected.forEach((product) => {
-      if (productData.product[product] && productData.product[product].sku) {
+      if (productData[product] && productData[product].sku) {
         skus = {
           ...skus,
-          ...productData.product[product].sku.reduce((acc, sku) => {
+          ...productData[product].sku.reduce((acc, sku) => {
             acc[sku.id] = { ...sku, selling_rate: "", total_items: "" };
             return acc;
           }, {}),
@@ -53,16 +72,6 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
     }));
   };
 
-  const handlePaidChange = (skuId, value) => {
-    setSkuData((prev) => ({
-      ...prev,
-      [skuId]: {
-        ...prev[skuId],
-        paid: value,
-      },
-    }));
-  };
-
   const handleFormChange = (field, value) => {
     setFormData((prev) => ({
       ...prev,
@@ -70,8 +79,16 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
     }));
   };
 
+  const handleAdd = (skuId) => {
+    setSelectedSKUs((prev) => [...prev, skuId]);
+  };
+
+  const handleDelete = (skuId) => {
+    setSelectedSKUs((prev) => prev.filter((id) => id !== skuId));
+  };
+
   const handleSubmit = () => {
-    const filledItems = Object.keys(skuData)
+    const filledItems = selectedSKUs
       .filter(
         (skuId) => skuData[skuId].selling_rate && skuData[skuId].total_items
       )
@@ -89,20 +106,28 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
       items: filledItems,
     };
 
+    console.log("Selected SKUs: ", filledItems);
     onSubmit(submissionData);
   };
 
-  const productOptions = Object.keys(productData.product).map((product) => ({
+  const productOptions = Object.keys(productData).map((product) => ({
     value: product,
-    label: productData.product[product].name,
+    label: productData[product].name,
   }));
 
-  if (!productData || !productData.product) {
+  if (!productData) {
     return <Spinner />;
   }
 
   return (
-    <VStack spacing={4} align="stretch" width="80%" mx="auto">
+    <VStack spacing={4} align="stretch" width="80%" mx="auto" color="tomato">
+      <Select
+        isMulti
+        
+        options={productOptions}
+        onChange={handleProductChange}
+        placeholder="Select products"
+      />
       <FormControl>
         <FormLabel>Invoice No</FormLabel>
         <Input
@@ -133,12 +158,7 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
           onChange={(e) => handleFormChange("paid", e.target.checked)}
         />
       </FormControl>
-      <Select
-        isMulti
-        options={productOptions}
-        onChange={handleProductChange}
-        placeholder="Select products"
-      />
+
       <Box overflowY="auto" maxHeight="400px" width="100%">
         {Object.keys(skuData).map((skuId) => (
           <Box
@@ -161,6 +181,7 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
                 onChange={(e) =>
                   handleInputChange(skuId, "selling_rate", e.target.value)
                 }
+                isDisabled={selectedSKUs.includes(skuId)}
               />
               <Input
                 placeholder="Total Items"
@@ -168,7 +189,13 @@ const SaleOrderForm = ({ productData, onSubmit, initialValues }) => {
                 onChange={(e) =>
                   handleInputChange(skuId, "total_items", e.target.value)
                 }
+                isDisabled={selectedSKUs.includes(skuId)}
               />
+              {!selectedSKUs.includes(skuId) ? (
+                <Button onClick={() => handleAdd(skuId)}>Add</Button>
+              ) : (
+                <Button onClick={() => handleDelete(skuId)}>Delete</Button>
+              )}
             </HStack>
           </Box>
         ))}

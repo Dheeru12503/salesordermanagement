@@ -1,5 +1,5 @@
 // components/SaleOrderModal.jsx
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -13,67 +13,12 @@ import {
 } from "@chakra-ui/react";
 import SaleOrderForm from "./SalesOrderForm";
 import { useProducts } from "../hooks/useSaleOrders";
-const productData = {
-  product: {
-    Earphones: {
-      id: 701,
-      display_id: 55,
-      owner: 6001,
-      name: "Earphones",
-      category: "Electronics",
-      characteristics: "High-Quality Sound and Noise-Cancellation",
-      features: "Wireless, Noise-Cancelling, and Comfortable Fit",
-      brand: "Top Audio Brands",
-      sku: [
-        {
-          id: 901,
-          selling_price: 249,
-          max_retail_price: 299,
-          amount: 1,
-          unit: "piece",
-          quantity_in_inventory: 200,
-          product: 701,
-          name: "Apple AirPods Pro",
-        },
-        {
-          id: 91,
-          selling_price: 249,
-          max_retail_price: 299,
-          amount: 1,
-          unit: "piece",
-          quantity_in_inventory: 200,
-          product: 711,
-          name: "Apple AirPods ",
-        },
-        {
-          id: 981,
-          selling_price: 249,
-          max_retail_price: 299,
-          amount: 1,
-          unit: "piece",
-          quantity_in_inventory: 200,
-          product: 701,
-          name: "Apple AirPods Pro",
-        },
-        {
-          id: 961,
-          selling_price: 249,
-          max_retail_price: 299,
-          amount: 1,
-          unit: "piece",
-          quantity_in_inventory: 200,
-          product: 701,
-          name: "Apple AirPods Pro",
-        },
-        // Other SKUs...
-      ],
-      updated_on: "2024-05-24T12:46:41.995873Z",
-      adding_date: "2024-05-24T12:46:41.995828Z",
-    },
-  },
-};
+import { AuthContext } from "../contexts/AuthContext";
+
 
 const SaleOrderModal = ({ isOpen, onClose, onSubmit, initialValues }) => {
+
+  
   // const { data: productData, isLoading, isError, error } = useProducts();
 
   // if (isLoading) {
@@ -89,6 +34,7 @@ const SaleOrderModal = ({ isOpen, onClose, onSubmit, initialValues }) => {
   //   );
   // }
   // console.log("product : ", productData);
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -101,7 +47,7 @@ const SaleOrderModal = ({ isOpen, onClose, onSubmit, initialValues }) => {
           <SaleOrderForm
             onSubmit={onSubmit}
             initialValues={initialValues}
-            productData={productData}
+           
           />
         </ModalBody>
         <ModalFooter>

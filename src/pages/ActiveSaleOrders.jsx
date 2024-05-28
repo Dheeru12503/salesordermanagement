@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import SaleOrderList from "../components/SaleOrderList";
 import SaleOrderModal from "../components/SaleOrderModal";
-import { createSaleOrder, updateSaleOrder, useSaleOrders } from "../hooks/useSaleOrders";
+import {
+  createSaleOrder,
+  updateSaleOrder,
+  useSaleOrders,
+} from "../hooks/useSaleOrders";
 import { Spinner, Alert, AlertIcon, Button } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -14,13 +18,12 @@ const ActiveSaleOrders = () => {
 
   // Declare the useMutation hook outside of any condition
   const { mutate } = useMutation({
-    mutationFn: createSaleOrder
+    mutationFn: createSaleOrder,
   });
 
   const { mutate: updateorder } = useMutation({
     mutationFn: updateSaleOrder,
   });
- 
 
   // Delare the usequeryinvalidation here
 
@@ -69,12 +72,19 @@ const ActiveSaleOrders = () => {
       </Alert>
     );
   }
-
+  const HandleOnclickSaveOrder = () => {
+     setModalOpen(true);
+  };
   // Filter saleOrders to only include those where `paid` is false
   const filteredSaleOrders = saleOrders.filter((order) => order.paid === false);
 
   return (
     <div>
+      <div className="saveorder" style={{position:"relative",width: "40px"}}>
+        <Button className="SAVEORDER" onClick={() => HandleOnclickSaveOrder()}>
+          + Sale Order
+        </Button>
+      </div>
       <SaleOrderList
         saleOrders={filteredSaleOrders}
         onEdit={handleEdit}
@@ -82,7 +92,6 @@ const ActiveSaleOrders = () => {
         ActiveSaleorderWindow={true}
       />
 
-      <Button onClick={() => setModalOpen(true)}>+ Sale Order</Button>
       <SaleOrderModal
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}

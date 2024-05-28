@@ -65,7 +65,7 @@ const SaleOrderList = ({
         </Thead>
         <Tbody>
           {saleOrders.map((order) => (
-            <Tr key={order.invoice_no}>
+            <Tr key={order.id}>
               <Td>{order.invoice_no}</Td>
               <Td>{order.customer_id}</Td>
               <Td>{order.items[0].sku_id}</Td>
